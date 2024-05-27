@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class SignupPage implements ActionListener {
     JFrame frame = new JFrame("Login System");
-    ImageIcon logo = new ImageIcon("C:\\Users\\safys\\OneDrive\\Desktop\\Java Programs\\src\\swing\\logo.png");
+    ImageIcon logo = new ImageIcon("Replace this with the absolute path of your logo image file");
     JLabel pageLabel = new JLabel("Signup Page");
     JLabel userIDLabel = new JLabel("User ID");
     JLabel userPasswordLabel = new JLabel("Password");
@@ -101,15 +101,15 @@ public class SignupPage implements ActionListener {
         if (e.getSource() == signupButton) {
             // validation & data storing logic
             if (String.valueOf(userPasswordField.getPassword()).equals(String.valueOf(userConfirmPasswordField.getPassword()))) {
-                String url = "jdbc:mysql://localhost:3306/testdb";
+                String url = "jdbc:mysql://localhost:3306/{name of your sql database without curly braces}";
                 Connection conn = null;
                 String userid = userIDField.getText();
                 String password = String.valueOf(userPasswordField.getPassword());
-                String fetchQuery = "select * from userinfo";
-                String insertQuery = "insert into userinfo(USERID, PASSWORD) " + "values('" + userid + "', '" + password + "');";
+                String fetchQuery = "select * from {name of your database table without curly braces}";
+                String insertQuery = "insert into {name of your database table without curly braces}({name of your userid column in the table}, {name of your password column in the table}) " + "values('" + userid + "', '" + password + "');";
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    conn = DriverManager.getConnection(url, "root", "SASH@26101ph");
+                    conn = DriverManager.getConnection(url, "your MySQL user id", "your MySQL password");
                     Statement st = conn.createStatement();
                     ResultSet rs = st.executeQuery(fetchQuery);
                     HashMap<String, String> userdata = new HashMap<String, String>();
@@ -149,7 +149,7 @@ public class SignupPage implements ActionListener {
 
         if (e.getSource() == loginButton) {
             frame.dispose();
-            LoginPage loginPage = new LoginPage();
+            new LoginPage();
         }
     }
 }

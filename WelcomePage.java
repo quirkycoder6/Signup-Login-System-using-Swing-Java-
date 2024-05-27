@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class WelcomePage implements ActionListener {
     JFrame frame = new JFrame("Login System");
-    ImageIcon logo = new ImageIcon("C:\\Users\\safys\\OneDrive\\Desktop\\Java Programs\\src\\swing\\logo.png");
+    ImageIcon logo = new ImageIcon("Replace this with the absolute path of your logo image file");
     JLabel welcomeLabel = new JLabel();
     JButton logoutButton = new JButton("Logout");
 
@@ -37,7 +37,7 @@ public class WelcomePage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == logoutButton) {
             frame.dispose();
-            LoginPage loginPage = new LoginPage();
+            new LoginPage();
         }
     }
 }

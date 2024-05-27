@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class LoginPage implements ActionListener {
     JFrame frame = new JFrame("Login System");
-    ImageIcon logo = new ImageIcon("C:\\Users\\safys\\OneDrive\\Desktop\\Java Programs\\src\\swing\\logo.png");
+    ImageIcon logo = new ImageIcon("Replace this with the absolute path of your logo image file");
     JLabel pageLabel = new JLabel("Login Page");
     JLabel userIDLabel = new JLabel("User ID");
     JLabel userPasswordLabel = new JLabel("Password");
@@ -91,12 +91,12 @@ public class LoginPage implements ActionListener {
             String userID = userIDField.getText();
             String password = String.valueOf(userPasswordField.getPassword());
 
-            String url = "jdbc:mysql://localhost:3306/testdb";
+            String url = "jdbc:mysql://localhost:3306/{name of your sql database without curly braces}";
             Connection conn = null;
-            String fetchQuery = "select * from userinfo";
+            String fetchQuery = "select * from {name of your database table without curly braces}";
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                conn = DriverManager.getConnection(url, "root", "SASH@26101ph");
+                conn = DriverManager.getConnection(url, "your MySQL user id", "your MySQL password");
                 Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(fetchQuery);
                 HashMap<String, String> userdata = new HashMap<String, String>();
@@ -119,13 +119,13 @@ public class LoginPage implements ActionListener {
                     messageLabel.setForeground(new Color(227, 38, 54));
                 }
             } catch (Exception ex) {
-                System.out.println(ex);
+                ex.printStackTrace();
             }
         }
 
         if (e.getSource() == signupButton) {
             frame.dispose();
-            SignupPage signupPage = new SignupPage();
+            new SignupPage();
         }
     }
 }
