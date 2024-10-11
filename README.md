@@ -1,6 +1,6 @@
 Signup/Login System using Swing {Java}
 
-A simple Signup/Login application build using the Swing framework in Java. The application contains a Signup Page where new users can register themselves, a Login Page where existing users can log into their account and a Welcome Page that follows when the user has logged into their respective account.
+A simple Signup/Login application build using the Swing framework in Java. The application contains a Signup Page where new users can register themselves, a Login Page where existing users can log into their account and a Welcome Page that greets the user after a successful login into their respective account.
 The following steps are to be taken after forking(cloning) the project :
 1. Install and setup a MySQL application service(preferably MySQL Workbench)
 2. Download and extract the connector.jar file from "https://dev.mysql.com/downloads/connector/j/" and add it to your project structure.
